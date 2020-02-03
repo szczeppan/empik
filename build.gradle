@@ -26,7 +26,8 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.2.4.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.2.4.RELEASE'
 
-    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '2.2.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-integration', version: '2.2.4.RELEASE'
+    compile group: 'org.springframework.integration', name: 'spring-integration-http', version: '5.2.3.RELEASE'
 
     runtime group: 'com.h2database', name: 'h2', version: '1.4.200'
 

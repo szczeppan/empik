@@ -9,12 +9,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.client.HttpClientErrorException;
 
 @ControllerAdvice
 public class ResponseExceptionHandler {
 
   @ExceptionHandler({
-      UserNotFoundException.class
+      UserNotFoundException.class,
+      HttpClientErrorException.NotFound.class
   })
   protected ResponseEntity<ErrorResponse> notFound(Exception ex, HttpServletRequest request) {
     return handleException(ex, request, HttpStatus.NOT_FOUND);
