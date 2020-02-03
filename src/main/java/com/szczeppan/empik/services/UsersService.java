@@ -32,8 +32,12 @@ public class UsersService {
     user.setAvatarUrl(githubUser.getAvatarUrl());
     user.setType(githubUser.getType());
     user.setCreatedAt(githubUser.getCreatedAt());
-    double calculations = 6.0 / githubUser.getFollowers() * (2.0 + githubUser.getPublicRepos());
+    double calculations = getCalculations(githubUser);
     user.setCalculations(calculations);
     return user;
+  }
+
+  double getCalculations(GithubUser githubUser) {
+    return 6.0 / githubUser.getFollowers() * (2.0 + githubUser.getPublicRepos());
   }
 }

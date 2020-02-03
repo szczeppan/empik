@@ -42,4 +42,25 @@ class UsersServiceTest {
     assertEquals(githubUser.getLogin(), login.map(User::getLogin).get());
   }
 
+  @Test
+  void getCalculations_shouldReturn12() {
+    final GithubUser githubUser = new GithubUser();
+    githubUser.setFollowers(1);
+    githubUser.setPublicRepos(1);
+
+    final double calculations = usersService.getCalculations(githubUser);
+    assertEquals(12, calculations);
+  }
+
+  @Test
+  void getCalculations_shouldReturnInfinity() {
+    final GithubUser githubUser = new GithubUser();
+    githubUser.setFollowers(0);
+    githubUser.setPublicRepos(1);
+
+    final double calculations = usersService.getCalculations(githubUser);
+    assertEquals(Double.POSITIVE_INFINITY, calculations);
+  }
+
+
 }
